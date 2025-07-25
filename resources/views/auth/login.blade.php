@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,32 +14,10 @@
             background: #fff;
         }
     </style>
+    @livewireStyles
 </head>
 <body class="bg-light">
-<div class="auth-card">
-    <h2 class="mb-4 text-center">Login</h2>
-    <form method="POST" action="{{ url('/login') }}">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" name="email" class="form-control" required autofocus>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
-        @if($errors->any())
-            <div class="alert alert-danger">{{ $errors->first() }}</div>
-        @endif
-        @if(session('success'))
-            <div class="alert alert-success">{{ session('success') }}</div>
-        @endif
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-    </form>
-    <p class="mt-3 text-center">
-        Don't have an account?
-        <a href="{{ url('/register') }}">Register here</a>
-    </p>
-</div>
+    @livewire('login-form')
+    @livewireScripts
 </body>
 </html>
